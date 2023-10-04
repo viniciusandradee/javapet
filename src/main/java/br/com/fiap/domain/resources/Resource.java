@@ -2,8 +2,6 @@ package br.com.fiap.domain.resources;
 
 import jakarta.ws.rs.core.Response;
 
-import java.util.List;
-
 public interface Resource<T, U> {
 
     public Response findAll();
