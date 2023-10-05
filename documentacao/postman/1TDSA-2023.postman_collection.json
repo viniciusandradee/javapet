@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "6f85eda3-f43d-4cdc-864b-dc28e60d047e",
+		"name": "1TDSA-2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1524675",
+		"_collection_link": "https://benefrancis-0803.postman.co/workspace/Keyclock~93df9411-a0f6-46ba-b611-cf6bc7dceb77/collection/1524675-6f85eda3-f43d-4cdc-864b-dc28e60d047e?action=share&source=collection_link&creator=1524675"
+	},
+	"item": [
+		{
+			"name": "PF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PF/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/pf/23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pf",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nascimento\": \"1960-05-15\",\r\n    \"nome\": \"Luiz Inácio Lula da Silva\",\r\n    \"tipo\": \"PF\",\r\n    \"CPF\": \"045465431235\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/pf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

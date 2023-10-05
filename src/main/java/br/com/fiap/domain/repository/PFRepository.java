@@ -11,7 +11,9 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class PFRepository implements Repository<PF, Long> {
+
     private static final AtomicReference<PFRepository> instance = new AtomicReference<>();
+
     private ConnectionFactory factory;
 
     private PFRepository() {
@@ -128,8 +130,7 @@ public class PFRepository implements Repository<PF, Long> {
 
     private static void fecharObjetos(ResultSet rs, Statement st, Connection con) {
         try {
-            boolean rsClosed = rs.isClosed();
-            if (Objects.nonNull( rs ) && !rsClosed) {
+            if (Objects.nonNull( rs ) && !rs.isClosed()) {
                 rs.close();
             }
             st.close();
