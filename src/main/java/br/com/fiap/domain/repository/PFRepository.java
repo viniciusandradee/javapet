@@ -12,9 +12,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class PFRepository implements Repository<PF, Long> {
 
-    private static final AtomicReference<PFRepository> instance = new AtomicReference<>();
-
     private ConnectionFactory factory;
+
+    private static final AtomicReference<PFRepository> instance = new AtomicReference<>();
 
     private PFRepository() {
         this.factory = ConnectionFactory.build();
