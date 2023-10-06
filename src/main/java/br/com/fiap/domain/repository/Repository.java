@@ -8,12 +8,6 @@ public interface Repository<T, U> {
 
     public T findById(U id);
 
-    public List<T> findByTexto(String texto);
-
     public T persiste(T t);
-
-    public T update(T t);
-
-    public boolean delete(T t);
 
 }

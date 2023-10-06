@@ -8,12 +8,6 @@ public interface Resource<T, U> {
 
     public Response findById(U id);
 
-    public Response findByTexto(String texto);
-
     public Response persiste(T t);
-
-    public Response update(U id, T t);
-
-    public Response delete(U id);
 
 }

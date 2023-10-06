@@ -21,7 +21,7 @@ public class PFRepository implements Repository<PF, Long> {
     }
 
     public static PFRepository build() {
-        instance.compareAndSet( null, new PFRepository() );
+        instance.compareAndSet(null, new PFRepository());
         return instance.get();
     }
 
@@ -34,21 +34,21 @@ public class PFRepository implements Repository<PF, Long> {
         try {
             String sql = "SELECT * FROM TB_PF";
             st = con.createStatement();
-            rs = st.executeQuery( sql );
+            rs = st.executeQuery(sql);
             if (rs.isBeforeFirst()) {
                 while (rs.next()) {
-                    Long id = rs.getLong( "ID_PESSOA" );
-                    String nome = rs.getString( "NM_PESSOA" );
-                    LocalDate nascimento = rs.getDate( "DT_NASCIMENTO" ).toLocalDate();
-                    String tipo = rs.getString( "TP_PESSOA" );
-                    String cpf = rs.getString( "NR_CPF" );
-                    list.add( new PF( id, nome, nascimento, cpf ) );
+                    Long id = rs.getLong("ID_PESSOA");
+                    String nome = rs.getString("NM_PESSOA");
+                    LocalDate nascimento = rs.getDate("DT_NASCIMENTO").toLocalDate();
+                    String tipo = rs.getString("TP_PESSOA");
+                    String cpf = rs.getString("NR_CPF");
+                    list.add(new PF(id, nome, nascimento, cpf));
                 }
             }
         } catch (SQLException e) {
-            System.err.println( "Não foi possível consultar os dados!\n" + e.getMessage() );
+            System.err.println("Não foi possível consultar os dados!\n" + e.getMessage());
         } finally {
-            fecharObjetos( rs, st, con );
+            fecharObjetos(rs, st, con);
         }
         return list;
     }
@@ -62,31 +62,27 @@ public class PFRepository implements Repository<PF, Long> {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement( sql );
-            ps.setLong( 1, id );
+            ps = con.prepareStatement(sql);
+            ps.setLong(1, id);
             rs = ps.executeQuery();
             if (rs.isBeforeFirst()) {
                 while (rs.next()) {
-                    String nome = rs.getString( "NM_PESSOA" );
-                    LocalDate nascimento = rs.getDate( "DT_NASCIMENTO" ).toLocalDate();
-                    String cpf = rs.getString( "NR_CPF" );
-                    pessoa = new PF( id, nome, nascimento, cpf );
+                    String nome = rs.getString("NM_PESSOA");
+                    LocalDate nascimento = rs.getDate("DT_NASCIMENTO").toLocalDate();
+                    String cpf = rs.getString("NR_CPF");
+                    pessoa = new PF(id, nome, nascimento, cpf);
                 }
             } else {
-                System.out.println( "Dados não encontrados com o id: " + id );
+                System.out.println("Dados não encontrados com o id: " + id);
             }
         } catch (SQLException e) {
-            System.err.println( "Não foi possível consultar os dados!\n" + e.getMessage() );
+            System.err.println("Não foi possível consultar os dados!\n" + e.getMessage());
         } finally {
-            fecharObjetos( rs, ps, con );
+            fecharObjetos(rs, ps, con);
         }
         return pessoa;
     }
 
-    @Override
-    public List<PF> findByTexto(String texto) {
-        return null;
-    }
 
     @Override
     public PF persiste(PF pf) {
@@ -98,45 +94,35 @@ public class PFRepository implements Repository<PF, Long> {
 
         try {
 
-            cs = con.prepareCall( sql );
-            cs.setString( 1, pf.getNome() );
-            cs.setDate( 2, Date.valueOf( pf.getNascimento() ) );
-            cs.setString( 3, pf.getTipo() );
-            cs.setString( 4, pf.getCPF() );
+            cs = con.prepareCall(sql);
+            cs.setString(1, pf.getNome());
+            cs.setDate(2, Date.valueOf(pf.getNascimento()));
+            cs.setString(3, pf.getTipo());
+            cs.setString(4, pf.getCPF());
 
-            cs.registerOutParameter( 5, Types.BIGINT );
+            cs.registerOutParameter(5, Types.BIGINT);
 
             cs.executeUpdate();
 
-            pf.setId( cs.getLong( 5 ) );
+            pf.setId(cs.getLong(5));
 
         } catch (SQLException e) {
-            System.err.println( "Não foi possível inserir os dados!\n" + e.getMessage() );
+            System.err.println("Não foi possível inserir os dados!\n" + e.getMessage());
         } finally {
-            fecharObjetos( null, cs, con );
+            fecharObjetos(null, cs, con);
         }
         return pf;
     }
 
-    @Override
-    public PF update(PF pf) {
-        return null;
-    }
-
-    @Override
-    public boolean delete(PF pf) {
-        return false;
-    }
-
     private static void fecharObjetos(ResultSet rs, Statement st, Connection con) {
         try {
-            if (Objects.nonNull( rs ) && !rs.isClosed()) {
+            if (Objects.nonNull(rs) && !rs.isClosed()) {
                 rs.close();
             }
             st.close();
             con.close();
         } catch (SQLException e) {
-            System.err.println( "Erro ao encerrar o ResultSet, a Connection e o Statment!\n" + e.getMessage() );
+            System.err.println("Erro ao encerrar o ResultSet, a Connection e o Statment!\n" + e.getMessage());
         }
     }
 

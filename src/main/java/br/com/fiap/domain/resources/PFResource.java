@@ -40,12 +40,6 @@ public class PFResource implements Resource<PF, Long> {
         return Response.ok( pf ).build();
     }
 
-    @Override
-    public Response findByTexto(String texto) {
-        return null;
-    }
-
-
     @POST
     @Override
     public Response persiste(PF pf) {
@@ -62,13 +56,4 @@ public class PFResource implements Resource<PF, Long> {
 
     }
 
-    @Override
-    public Response update(Long id, PF pf) {
-        return null;
-    }
-
-    @Override
-    public Response delete(Long id) {
-        return null;
-    }
 }

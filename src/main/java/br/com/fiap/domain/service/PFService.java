@@ -19,26 +19,11 @@ public class PFService implements Service<PF, Long> {
         return repo.findById( id );
     }
 
-    @Override
-    public List<PF> findByTexto(String texto) {
-        return repo.findByTexto( texto );
-    }
 
     @Override
     public PF persiste(PF pf) {
         return repo.persiste( pf );
     }
 
-    @Override
-    public PF update(Long id, PF pf) {
 
-        // regra
-
-        return repo.update( pf );
-    }
-
-    @Override
-    public boolean delete(PF pf) {
-        return repo.delete( pf );
-    }
 }
