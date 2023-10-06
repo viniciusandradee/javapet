@@ -1,12 +1,12 @@
 # JavaPet Benezinho  🤓👍🏾
 
-CHECKPOINT - Domain Driven Development aplicado em 04/10/2023.
+CHECKPOINT - Domain Driven Development aplicado em 06/10/2023.
 
 
 | ![](documentacao/fiap.jpg)               | **Domain Driven Development** |
 |------------------------------------------|-------------------------------|
 | **ALUNO:**                               | **TURMA:** 1TDSA 2023         |
-| **PROFESSOR:** Benefrancis do Nascimento | 10/06/2023                    |
+| **PROFESSOR:** Benefrancis do Nascimento | 06/10/2023                    |
 | **Checkpoint**                           |                               |
 
 # Sumário
@@ -30,10 +30,9 @@ Contratamos você como Engenheiro de Software para ajudar a construir esse siste
 
 Na sprint atual, você foi incumbido de fazer:
 
-
 1. A persistência de todos os dados, e;
 
-4. A criação de dos métodos capazes de realizar operações no repositório respeitando a interface genérica Repository:
+4. A criação de dos métodos capazes de realizar operações respeitando as interfaces genéricas Repository, Service e Resource:
 
         1. Consulta todos os objetos findAll;
         2. Consulta Objeto pelo Id findById;
@@ -78,12 +77,7 @@ Alterar o arquivo contido em documentacao/equipe.txt para incluir os RMs e nomes
 
 # Diagrama de Classes de Domínio
 
-<img src="documentacao/uml/domain.png">
-
-
-# Diagrama de Classes de Infra e Segurança
-
-<img src="documentacao/uml/security.png">
+<img src="documentacao/diagrama/uml/entity.png">
 
 
 <a id="_Correcao"></a>
