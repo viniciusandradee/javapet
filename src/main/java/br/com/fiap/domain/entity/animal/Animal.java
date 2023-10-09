@@ -1,8 +1,9 @@
 package br.com.fiap.domain.entity.animal;
 
+import br.com.fiap.domain.entity.pessoa.PF;
 import br.com.fiap.domain.entity.pessoa.Pessoa;
 
-public abstract class Animal {
+public class  Animal {
 
     private Long id;
 
@@ -31,6 +32,9 @@ public abstract class Animal {
         this.descricao = descricao;
         this.dono = dono;
         this.tipo = tipo;
+    }
+
+    public Animal(Long id, String nome, String raca, String descricao, Long dono, String tipo, PF pf) {
     }
 
     public Long getId() {
